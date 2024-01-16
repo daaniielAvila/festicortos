@@ -1,0 +1,70 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+body{
+    background-image: url(/public/img/img1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+.titulo{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 60px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-weight: bold;
+}
+article{
+    width: 100%;
+    height: 100vh;
+    
+
+}
+button{
+    margin-bottom: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #e0e0e0;
+  }
+.card{
+  width: 350px;
+  height: 300px;
+  margin-right: 50px;
+  font-size: 16px;
+  margin-top: 20px;
+
+}
