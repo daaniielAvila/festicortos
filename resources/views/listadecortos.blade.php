@@ -35,7 +35,7 @@
             <p class="card-text">{{ $corto['director'] }}</p>
 
             <p class="card-text">{{ $corto['sinapsis'] }}</p>
-            <a href="#" class="btn btn-primary">Detalles</a>
+            <a href="{{route('cortodetallado', $corto['id'])}}" class="btn btn-primary">Detalles</a>
           </div>
         </div>
       </div>

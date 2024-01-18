@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('cortos', [ControladorFesticortos::class, 'index'])->name('listadecortos');
-Route::get('cortos/{id}', [ControladorFesticortos::class, 'show']);
+Route::get('cortos/{id}', [ControladorFesticortos::class, 'show'])->name('cortodetallado');
 
 
 Route::get('home/listadelibros', function() {

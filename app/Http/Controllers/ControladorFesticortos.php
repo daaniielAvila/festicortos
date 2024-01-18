@@ -6,52 +6,54 @@ use Illuminate\Http\Request;
 
 class ControladorFesticortos extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    public $cortos = [
+        [
+        'id' => 1,
+        'titulo' => 'El corto más cortante',
+        'director' => 'María Martín',
+        'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.'
+        ],
+        [
+        'id' => 2,
+        'titulo' => 'Sin más',
+        'director' => 'Pepa Pérez',
+        'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.'
+        ],
+        [
+        'id' => 3,
+        'titulo' => 'Más o menos',
+        'director' => 'Juan Jiménez',
+        'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.'
+        ],
+        [
+        'id' => 4,
+        'titulo' => 'Tira pa\' ya',
+        'director' => 'Sofía Sofín',
+        'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.'
+        ],
+        [
+        'id' => 5,
+        'titulo' => 'Miedo','director' => 'Pepe Parrilla',
+        'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.'
+        ]
+        ];
+  
+
     public function index()
     {
-        $cortos = [
-            [
-            'id' => 1,
-            'titulo' => 'El corto más cortante',
-            'director' => 'María Martín',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 2,
-            'titulo' => 'Sin más',
-            'director' => 'Pepa Pérez',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 3,
-            'titulo' => 'Más o menos',
-            'director' => 'Juan Jiménez',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 4,
-            'titulo' => 'Tira pa\' ya',
-            'director' => 'Sofía Sofín',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ],
-            [
-            'id' => 5,
-            'titulo' => 'Miedo','director' => 'Pepe Parrilla',
-            'sinapsis' => 'Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.'
-            ]
-            ];
+        $cortos= $this->cortos;
+       
         return view('listadecortos', compact('cortos'));
     }
 
@@ -76,7 +78,7 @@ class ControladorFesticortos extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('cortos.cortos', compact('id'));
     }
 
     /**
