@@ -78,9 +78,10 @@ class ControladorFesticortos extends Controller
      */
     public function show(string $id)
     {
-        return view('cortos.cortos', compact('id'));
+        $corto = collect($this->cortos)->firstWhere('id', $id);
+        return view('cortos.cortos', compact('corto'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
