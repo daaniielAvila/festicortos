@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorFesticortos;
+use App\Http\Controllers\LibroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,17 +24,7 @@ Route::get('/', function () {
 Route::get('cortos', [ControladorFesticortos::class, 'index'])->name('listadecortos');
 Route::get('cortos/{id}', [ControladorFesticortos::class, 'show'])->name('cortodetallado');
 
+Route::resource('libros',LibroController::class);
 
-Route::get('home/listadelibros', function() {
-    $libros = array(
-    array("titulo" => "El juego de Ender",
-    "autor" => "Orson Scott Card"),
-    array("titulo" => "La tabla de Flandes",
-"autor" => "Arturo Pérez Reverte"),
-array("titulo" => "La historia interminable",
-"autor" => "Michael Ende"),
-array("titulo" => "El Señor de los Anillos",
-"autor" => "J.R.R. Tolkien")
-);
-return view('listadelibros', compact('libros'));
-})->name('listadelibros');
+Route::get('/libros/create', [LibroController::class, 'create'])->name('libros.create');
+Route::post('/libros/store', [LibroController::class, 'store'])->name('libros.store');

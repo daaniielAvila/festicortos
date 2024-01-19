@@ -17,7 +17,7 @@
       <div class="navbar-nav">
         <a class="nav-link text-white " aria-current="page" href="{{route('home')}}">Home</a>
         <a class="nav-link text-white " href="{{route('listadecortos')}}">Lista de cortos</a>
-        <a class="nav-link text-white" href="{{route('listadelibros')}}">Lista de libros</a>
+        <a class="nav-link text-white" href="{{route('libros.index')}}">Lista de libros</a>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ Bienvenidos a la pagina de festicortos
 <a href="{{route('listadecortos')}}">
 
 <button type="button" class="btn btn-primary btn-lg">Visita nuestra lista de cortos</button></a>
-<a class="nav-link" href="{{route('listadelibros')}}">
+<a class="nav-link" href="{{route('libros.index')}}">
 <button type="button" class="btn btn-secondary btn-lg"  >Visita nuestra lista de libros </button></a>
 </div>
 </article> 
