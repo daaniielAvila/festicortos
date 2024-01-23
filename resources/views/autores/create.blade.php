@@ -27,15 +27,14 @@
         </div>
       </nav>
 <div id="formulario">
-    <form id="formu" method="POST" action="{{ route('libros.store') }}">
+    <form id="formu" method="POST" action="{{ route('autores.store') }}">
         @csrf
-        <label for="titulo">Título:</label>
-        <input type="text" name="titulo" id="titulo" required>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required>
     
-        <label for="autor">Editorial:</label>
-        <input type="text" name="editorial" id="editorial" required>
-        <label for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" required>
+        <label for="autor">Nacimiento:</label>
+        <input type="number" name="nacimiento" id="nacimiento" maxlength="4" required>
+
     
         <button type="submit">Guardar</button>
     </form>

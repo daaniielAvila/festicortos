@@ -19,6 +19,8 @@
         <a class="nav-link text-white " aria-current="page" href="{{route('home')}}">Home</a>
         <a class="nav-link text-white " href="{{route('listadecortos')}}">Lista de cortos</a>
         <a class="nav-link text-white" href="{{route('libros.index')}}">Lista de libros</a>
+        <a class="nav-link text-white" href="{{route('autores.index')}}">Lista de autores</a>
+
       </div>
     </div>
   </div>

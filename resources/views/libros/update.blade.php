@@ -27,7 +27,7 @@
         </div>
       </nav>
 <div id="formulario">
-    <form id="formu" method="POST" action="{{ route('libros.store') }}">
+    <form id="formu" method="POST" action="{{ route('libros.update') }}">
         @csrf
         <label for="titulo">Título:</label>
         <input type="text" name="titulo" id="titulo" required>

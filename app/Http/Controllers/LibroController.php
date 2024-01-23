@@ -8,6 +8,7 @@ use App\Models\Libro;
 
 class LibroController extends Controller
 {
+
  
     public function index()
     {
@@ -56,14 +57,15 @@ class LibroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        Libro::findOrFail($id)->update($request->all());    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
-    }
+Libro::findOrFail($id)->delete();
+$libros = Libro::get();
+return view('libros.index', compact('libros'));  
+  }
 }

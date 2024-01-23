@@ -9,7 +9,7 @@
 
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="{{route('home')}}">Festicortos</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,20 +26,38 @@
           </div>
         </div>
       </nav>
-<div id="formulario">
-    <form id="formu" method="POST" action="{{ route('libros.store') }}">
-        @csrf
-        <label for="titulo">Título:</label>
-        <input type="text" name="titulo" id="titulo" required>
-    
-        <label for="autor">Editorial:</label>
-        <input type="text" name="editorial" id="editorial" required>
-        <label for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" required>
-    
-        <button type="submit">Guardar</button>
-    </form>
-</div>
-    
+    <h1>Listado de autores</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Nacimiento</th>
+                <th><a href="{{route('autores.create') }}"><button>Insertar</button></a></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($autores as $autor)
+                <tr>
+                    <td>{{ $autor["nombre"] }}</td>
+                    <td>{{ $autor["nacimiento"] }}</td>
+                    <td><form action="{{ route('autores.destroy', $autor) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button class="botonborrar" id="botonborrar">Borrar</button>
+                        </form>
+                    </td>
+
+                        <td><a href="{{ route('autores.update', $autor) }}">Modificar
+                        </a>
+                        </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="2">No se encontraron autores</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
 </body>
 </html>
