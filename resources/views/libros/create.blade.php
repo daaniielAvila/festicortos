@@ -21,7 +21,6 @@
               <a class="nav-link text-white " href="{{route('listadecortos')}}">Lista de cortos</a>
               <a class="nav-link text-white" href="{{route('libros.index')}}">Lista de libros</a>
               <a class="nav-link text-white" href="{{route('autores.index')}}">Lista de autores</a>
-
             </div>
           </div>
         </div>
@@ -32,10 +31,20 @@
         <label for="titulo">Título:</label>
         <input type="text" name="titulo" id="titulo" required>
     
-        <label for="autor">Editorial:</label>
+        <label for="editorial">Editorial:</label>
         <input type="text" name="editorial" id="editorial" required>
+        
         <label for="precio">Precio:</label>
         <input type="number" name="precio" id="precio" required>
+        
+        <label for="id_autor">Autor:</label>
+        <select name="id_autor" id="id_autor" required>
+            @foreach($autores as $autor)
+                <option value="{{ $autor->id }}">{{ $autor->nombre }}</option>
+            @endforeach
+        </select>
+        <br>
+        <br>
     
         <button type="submit">Guardar</button>
     </form>

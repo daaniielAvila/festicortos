@@ -10,6 +10,6 @@ class Libro extends Model
      use HasFactory;
     protected $table = 'libros';
     protected $fillable = [
-        'titulo', 'editorial', 'precio',
+        'titulo', 'editorial', 'precio','id_autor'
     ];
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Libro;
+use App\Models\Autores;
+
 
 
 class LibroController extends Controller
@@ -14,7 +16,9 @@ class LibroController extends Controller
     {
         
         $libros = Libro::get();
-        return view('libros.index', compact('libros'));
+        $autores = Autores::all(); 
+
+        return view('libros.index', compact('libros', 'autores'));
     }
 
     /**
@@ -22,7 +26,8 @@ class LibroController extends Controller
      */
     public function create()
     {
-        return view('libros.create');    }
+        $autores = Autores::all(); 
+        return view('libros.create', compact('autores'));    }
 
     /**
      * Store a newly created resource in storage.
@@ -33,10 +38,12 @@ class LibroController extends Controller
             'titulo' => $request->input('titulo'),
             'editorial' => $request->input('editorial'),
             'precio'=>$request->input('precio'),
+            'id_autor'=>$request->input('id_autor'),
+
 
         ]);
     
-        return redirect()->route('libros.create')->with('success', 'Libro guardado');
+        return redirect()->route('libros.index')->with('success', 'Libro guardado');
   
     }
     public function show(string $id)
@@ -49,19 +56,28 @@ class LibroController extends Controller
      */
     public function edit(string $id)
     {
-        //
-    }
+        $autores = Autores::all(); 
+
+        $libro = Libro::findOrFail($id);
+        return view('libros.edit', compact('libro', 'autores'));    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        Libro::findOrFail($id)->update($request->all());    }
+    
+        $libro = Libro::findOrFail($id);
+    
+        $libro->titulo = $request->input('titulo');
+        $libro->editorial = $request->input('editorial');
+        $libro->precio = $request->input('precio');
+        $libro->id_autor  =$request->input('id_autor');
 
-    /**
-     * Remove the specified resource from storage.
-     */
+        $libro->save();
+    
+        return redirect()->route('libros.index')->with('success', 'Autor actualizado exitosamente');
+    }
     public function destroy(string $id)
     {
 Libro::findOrFail($id)->delete();

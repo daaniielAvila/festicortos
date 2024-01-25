@@ -33,7 +33,12 @@
                 <th>Título</th>
                 <th>Editorial</th>
                 <th>Precio</th>
+                <th>id_autor</th>
+
+
                 <th><a href="{{route('libros.create') }}"><button>Insertar</button></a></th>
+                <th></th>
+
             </tr>
         </thead>
         <tbody>
@@ -42,10 +47,21 @@
                     <td>{{ $libro["titulo"] }}</td>
                     <td>{{ $libro["editorial"] }}</td>
                     <td>{{ $libro["precio"] }}</td>
+                    <td>  @foreach($autores as $autor)
+                        @if($autor->id == $libro["id_autor"])
+                            {{ $autor->nombre }}
+                        @endif
+                    @endforeach
                     <td><form action="{{ route('libros.destroy', $libro) }}" method="POST">
                         @method('DELETE')
                         @csrf
                         <button class="botonborrar" id="botonborrar">Borrar</button>
+                        </form>
+                    </td>
+                    <td><form action="{{ route('libros.edit', $libro) }}" method="POST">
+                        @method('GET')
+                        @csrf
+                        <button class="botonmodificar" id="botonmodificar">Modificar</button>
                         </form>
                     </td>
                 </tr>

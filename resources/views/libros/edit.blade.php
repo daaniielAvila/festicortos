@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,21 +26,29 @@
           </div>
         </div>
       </nav>
+    <h1>Editar Autor</h1>
 <div id="formulario">
-    <form id="formu" method="POST" action="{{ route('autores.update') }}">
-
+    <form id="formu" method="POST" action="{{ route('libros.update', $libro->id) }}">
         @csrf
         @method('PUT')
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" required>
-    
-        <label for="autor">Nacimiento:</label>
-        <input type="number" name="nacimiento" id="nacimiento" maxlength="4" required>
 
-    
-        <button type="submit">Guardar</button>
+        <label for="titulo">Titulo:</label>
+        <input type="text" name="titulo" id="titulo" value="{{ $libro->titulo }}" required>
+
+        <label for="editorial">Editorial:</label>
+        <input type="text" name="editorial" id="editorial" value="{{ $libro->editorial }}" required>
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" value="{{ $libro->precio }}" required>
+
+        <label for="id_autor">Autor:</label>
+        <select name="id_autor" id="id_autor" value="" required>
+            @foreach($autores as $autor)
+                <option value="{{ $autor->id }}">{{ $autor->nombre }}</option>
+            @endforeach
+        </select>
+
+        <button type="submit">Guardar cambios</button>
     </form>
 </div>
-    
 </body>
-</html> --}}
+</html>

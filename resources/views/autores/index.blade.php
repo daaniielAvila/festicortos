@@ -47,10 +47,12 @@
                         <button class="botonborrar" id="botonborrar">Borrar</button>
                         </form>
                     </td>
-
-                        <td><a href="{{ route('autores.update', $autor) }}">Modificar
-                        </a>
-                        </td>
+                    <td><form action="{{ route('autores.edit', $autor) }}" method="POST">
+                        @method('GET')
+                        @csrf
+                        <button class="botonmodificar" id="botonmodificar">Modificar</button>
+                        </form>
+                    </td>
                 </tr>
             @empty
                 <tr>

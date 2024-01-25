@@ -27,6 +27,7 @@ Route::get('cortos/{id}', [ControladorFesticortos::class, 'show'])->name('cortod
 
 Route::resource('libros',LibroController::class);
 
+
 Route::get('/libros/create', [LibroController::class, 'create'])->name('libros.create');
 Route::post('/libros/store', [LibroController::class, 'store'])->name('libros.store');
 
@@ -34,5 +35,6 @@ Route::resource('autores',AutorController::class);
 
 Route::get('/autores/create', [AutorController::class, 'create'])->name('autores.create');
 Route::post('/autores/store', [AutorController::class, 'store'])->name('autores.store');
-Route::post('/autores/update', [AutorController::class, 'update'])->name('autores.update');
+Route::get('/autores/{id}/edit', [AutorController::class, 'edit'])->name('autores.edit');
+Route::put('/autores/{id}', [AutorController::class, 'update'])->name('autores.update');
 

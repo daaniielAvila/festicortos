@@ -37,7 +37,7 @@ class AutorController extends Controller
 
         ]);
     
-        return redirect()->route('autores.create')->with('success', 'Autor guardado');
+        return redirect()->route('autores.index')->with('success', 'Autor guardado');
     }
 
     /**
@@ -51,26 +51,28 @@ class AutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $autor = Autores::findOrFail($id);
+        return view('autores.edit', compact('autor'));
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-{
-    dd($request);
-    $autor = Autores::findOrFail($id);
-
-    $autor->update([
-        'nombre' => $request->input('nombre'),
-        'nacimiento' => $request->input('nacimiento'),
-    ]);
-
-    return redirect()->route('autores.update')->with('success', 'Autor modificado');
-}
+    public function update(Request $request, $id)
+    {
+    
+        $autor = Autores::findOrFail($id);
+    
+        $autor->nombre = $request->input('nombre');
+        $autor->nacimiento = $request->input('nacimiento');
+        $autor->save();
+    
+        return redirect()->route('autores.index')->with('success', 'Autor actualizado exitosamente');
+    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -78,7 +80,7 @@ class AutorController extends Controller
     public function destroy(string $id)
     {
         Autores::findOrFail($id)->delete();
-$Autores = Autores::get();
-return view('Autores.index', compact('Autores')); 
+$autores = Autores::get();
+return view('autores.index', compact('autores')); 
     }
 }
