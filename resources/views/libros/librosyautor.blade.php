@@ -9,7 +9,7 @@
 
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="{{route('home')}}">Festicortos</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,25 +23,28 @@
               <a class="nav-link text-white" href="{{route('autores.index')}}">Lista de autores</a>
               <a class="nav-link text-white" href="{{route('libros.librosyautor', 15)}}">Lista de libros y su autor</a>
 
+            
 
             </div>
           </div>
         </div>
       </nav>
-    <h1>Editar Autor</h1>
-<div id="formulario">
-    <form id="formu" method="POST" action="{{ route('autores.update', $autor->id) }}">
-        @csrf
-        @method('PUT')
-
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value="{{ $autor->nombre }}" required>
-
-        <label for="nacimiento">Nacimiento:</label>
-        <input type="number" name="nacimiento" id="nacimiento" value="{{ $autor->nacimiento }}" required>
-
-        <button type="submit">Guardar cambios</button>
-    </form>
-</div>
-</body>
-</html>
+      {{-- @forelse($librosAutor as $libro)
+      <li>
+      <a href="{{ route('libros.librosyautor', $libro) }}">
+      {{ $libro->titulo }} ({{ $libro->autor->nombre }})
+      </a>
+      </li>
+      @empty
+      <li>No se encontraron libros</li>
+      @endforelse --}}
+      @forelse($librosAutor as $libro)
+    <li>
+        <a href="{{ route('libros.librosyautor', $libro->id) }}">
+            {{ $libro->titulo }} ({{ $libro->autor->nombre }})
+        </a>
+    </li>
+@empty
+    <li>No se encontraron libros</li>
+@endforelse
+      </html>

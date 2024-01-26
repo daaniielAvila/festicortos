@@ -84,4 +84,27 @@ Libro::findOrFail($id)->delete();
 $libros = Libro::get();
 return view('libros.index', compact('libros'));  
   }
+
+
+
+
+  public function librosyautor($id)
+  {
+
+    $librosAutor = Libro::all();
+    $autores = Autores::all();
+
+    return view('libros.librosyautor', compact('librosAutor', 'autores'));
+
+
+    //     $librosAutor = [];
+    //     foreach (Libro::all() as $libro){
+    //         if ($libro->id_autor == $id) $librosAutor[] = $libro;
+    //     }
+    //   $autor = Autores::all(); 
+
+    //   return view('libros.librosyautor', compact('librosAutor', 'autor'));
+  }
+  
+
 }

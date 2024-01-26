@@ -21,6 +21,8 @@
               <a class="nav-link text-white " href="{{route('listadecortos')}}">Lista de cortos</a>
               <a class="nav-link text-white" href="{{route('libros.index')}}">Lista de libros</a>
               <a class="nav-link text-white" href="{{route('autores.index')}}">Lista de autores</a>
+              <a class="nav-link text-white" href="{{route('libros.librosyautor', 15)}}">Lista de libros y su autor</a>
+
 
             </div>
           </div>
