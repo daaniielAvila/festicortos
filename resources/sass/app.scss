@@ -8,9 +8,11 @@
 @import 'bootstrap/scss/bootstrap';
 
 body{
-    background-image: url(/public/img/img1.svg);
+    // background-image: url(/public/img/img1.svg);
+    background-image: url('https://www.xtrafondos.com/wallpapers/resized/degradado-linea-morado-11903.jpg?s=large');
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
   
 }
 .titulo{
@@ -150,4 +152,7 @@ body, html {
   background-color: rgba(0, 4, 255, 0.842);
   color: white;
 
+}
+a{
+  color: black;
 }

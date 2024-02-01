@@ -20,7 +20,9 @@
     <select name="id_autor" id="id_autor" required>
         @foreach($autores as $autor)
             <option value="{{ $autor->id }}">{{ $autor->nombre }}</option>
+
         @endforeach
+
     </select>
     <button type="submit">Mostrar Libros</button>
 </form>
