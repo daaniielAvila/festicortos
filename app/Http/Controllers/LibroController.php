@@ -105,6 +105,16 @@ return view('libros.index', compact('libros'));
 
     //   return view('libros.librosyautor', compact('librosAutor', 'autor'));
   }
-  
+  public function librospor(Request $request) {
+    $id_autor = $request->input('id_autor');
+    $autor = Autores::find($id_autor);
+    $librosAutor = Libro::where('id_autor', $id_autor)->get();
+    $autores = Autores::all();
+
+    return view('libros.librospor', compact('autor', 'librosAutor', 'autores'));
+}
+
+
+
 
 }

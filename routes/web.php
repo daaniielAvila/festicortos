@@ -4,7 +4,7 @@ use App\Http\Controllers\AutorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorFesticortos;
 use App\Http\Controllers\LibroController;
-
+use App\Http\Controllers\Api\LibroControlador;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,5 +37,10 @@ Route::post('/autores/store', [AutorController::class, 'store'])->name('autores.
 Route::get('/autores/{id}/edit', [AutorController::class, 'edit'])->name('autores.edit');
 Route::put('/autores/{id}', [AutorController::class, 'update'])->name('autores.update');
 Route::get('/libros/librosyautor/{id}', [LibroController::class, 'librosyautor'])->name('libros.librosyautor');
+Route::get('/libros/librospor', [LibroController::class, 'librospor'])->name('libros.librospor');
+Route::apiResource('apilibros', LibroControlador::class);
+Route::get('/api/libros', [LibroControlador::class, 'index'])->name('libros.index');
+Route::get('/api/libros/{libro}', [LibroControlador::class, 'show'])->name('libros.show');
+
 
 Route::resource('libros',LibroController::class);
